@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="account_discount_journal_form" model="ir.ui.view">
+        <field name="name">account.journal.discount.form</field>
+	<field name="model">account.journal</field>
+	<field name="inherit_id" ref="account.view_account_journal_form"></field>
+	<field name="arch" type="xml">
+		<xpath expr="//page[@name='bank_account']" position="inside">
+			<group string="Discounts" id="journal_discount">
+				<field name="discount_journal_id" />
+				<field name="discount_account_id" />
+			</group>
+		</xpath>
+        </field>
+    </record>
+
+    <record id="account_discount_move_form" model="ir.ui.view">
+        <field name="name">account.move.discount.form</field>
+	<field name="model">account.move</field>
+	<field name="inherit_id" ref="account.view_move_form"></field>
+	<field name="arch" type="xml">
+		<xpath expr="//page[@id='other_tab']" position="inside">
+			<group string="Discounts" id="move_discount">
+				<field name="discount_move_id" readonly="1" />
+			</group>
+		</xpath>
+        </field>
+    </record>
+
+</odoo>
