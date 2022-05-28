@@ -85,5 +85,6 @@ class AccountMove(models.Model):
                                     }
                             credit_id = self.env['account.move.line'].with_context({'check_move_validity': False}).create(vals_debit)
                     move_id.action_post()
+                    rec.message_post(body=_(('Discount move %s created and validated')%(move_id.name)))
 
         return res
